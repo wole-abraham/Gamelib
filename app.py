@@ -4,18 +4,25 @@ from flask import Flask, render_template, url_for, redirect, request
 import api_requests
 app = Flask(__name__)
 
+next_page = ''
 @app.route('/', strict_slashes=False)
 def index():
     """ homepage: just displays the games"""
-    # testing 
-    next = request.args.get('next')
-    data  = api_requests.get_index(next)
+    # testing
+    global next_page 
+    if request.args.get('next') == 'next':
+        data = api_requests.get_index(next_page)
+        print(data['next'])
+        next_page = data['next']
+        
+    else:
+        data  = api_requests.get_index()
+        next_page = data['next']
     return render_template('index.html', data=data)
 
 @app.route('/more')
 def more():
-    next = request.args.get('next')
-    return redirect(url_for('index', next=next))
+    return redirect(url_for('index', next='next'))
 
 @app.route('/details', strict_slashes=False)
 def details():
