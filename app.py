@@ -1,6 +1,6 @@
 
 #!/usr/bin/env python3
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, redirect, request
 import api_requests
 app = Flask(__name__)
 
@@ -8,8 +8,14 @@ app = Flask(__name__)
 def index():
     """ homepage: just displays the games"""
     # testing 
-    a  = api_requests.get_index()
-    return render_template('index.html', images=a)
+    next = request.args.get('next')
+    data  = api_requests.get_index(next)
+    return render_template('index.html', data=data)
+
+@app.route('/more')
+def more():
+    next = request.args.get('next')
+    return redirect(url_for('index', next=next))
 
 @app.route('/details', strict_slashes=False)
 def details():

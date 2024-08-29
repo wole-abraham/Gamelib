@@ -2,15 +2,21 @@ import requests
 
 base_url = "https://api.rawg.io/api/games"
 api_key = {"key": "4f87adae5f3c405fbd2e86a44af08ec9"}
-image = []
-def get_index():
-    req = requests.get(base_url, api_key)
-    res = req.json().get('results')
-    for shots in res:
-        images = shots['short_screenshots'][0]['image']
-        image.append(images)
-    
-    return image
+
+data = {}
+
+req = requests.get(base_url, api_key)
+def get_index(next=None):
+    if next:
+        req = requests.get(next)
+        data['results'] = data['results'] + req.json()['results']
+    else:
+        req = requests.get(base_url, api_key)
+        data['results'] = req.json()['results']
+        data['next']=req.json()['next']
+    return data
+
+
 
 
 
