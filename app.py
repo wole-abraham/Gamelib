@@ -1,40 +1,39 @@
 
 #!/usr/bin/env python3
 from flask import Flask, render_template, url_for, redirect, request
+from flask_caching import Cache
 import api_requests
-app = Flask(__name__)
 
+config = {
+    "DEBUG": True,          # some Flask specific configs
+    "CACHE_TYPE": "SimpleCache",  # Flask-Caching related configs
+    "CACHE_DEFAULT_TIMEOUT": 300
+}
+app = Flask(__name__)
+app.config.from_mapping(config)
+cache = Cache(app)
 next_page = ''
+
+
 @app.route('/', strict_slashes=False)
+@cache.cached(timeout=50)
 def index():
     """ homepage: just displays the games"""
     # testing
-    global next_page 
-    if request.args.get('next') == 'next':
-        data = api_requests.get_index(next_page)
-        print(data['next'])
-        next_page = data['next']
-        
-    else:
-        data  = api_requests.get_index()
-        next_page = data['next']
+    data = api_requests.get_index()
     return render_template('index.html', data=data)
 
-@app.route('/more')
-def more():
-    return redirect(url_for('index', next='next'))
-
-@app.route('/details', strict_slashes=False)
-def details():
+def details(game_id):
     """ displayes information about a specific game """
-    return render_template('details.html')
+    info = api_requests.get_index(game_id)
+    return render_template('details.html', info=info)
 
 @app.route('/profile', strict_slashes=False)
 def profile():
     """ displayes the user profile if user is logged in """
     return render_template('profile.html')
 
-@app.route('/login', strict_slashes=False)
+@app.route('/logi`n', strict_slashes=False)
 def login():
     """ authenication:
         basic auth 
