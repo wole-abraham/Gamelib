@@ -16,17 +16,20 @@ next_page = ''
 
 
 @app.route('/', strict_slashes=False)
-@cache.cached(timeout=50)
+# @cache.cached(timeout=50)
 def index():
     """ homepage: just displays the games"""
     # testing
     data = api_requests.get_index()
     return render_template('index.html', data=data)
 
-def details(game_id):
+
+@app.route('/details/<int:id>')
+def details(id):
     """ displayes information about a specific game """
-    info = api_requests.get_index(game_id)
-    return render_template('details.html', info=info)
+    info = api_requests.get_index(id)
+    screenshot = api_requests.screenshot(id)
+    return render_template('details.html', info=info, screenshot=screenshot)
 
 @app.route('/profile', strict_slashes=False)
 def profile():
@@ -55,4 +58,4 @@ def streams():
     return 'streams'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5002)

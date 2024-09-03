@@ -17,15 +17,19 @@ api_key = {"key": "4f87adae5f3c405fbd2e86a44af08ec9",
 
 }
 
-def get_index(data):
+def get_index(data=None):
     if data:
-        req = requests.get(base_url + f'/{data}')
+        req = requests.get(base_url + f'/{data}', params=api_key)
         return req.json()
 
     req = requests.get(base_url, params=api_key)
     return req.json()['results']
 
-
+def screenshot(data=None):
+    if data:
+        req = requests.get(base_url + f'/{data}/screenshots', params=api_key)
+        print(req.json())
+        return req.json()['results']
 
 
 
