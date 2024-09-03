@@ -79,3 +79,6 @@ gamelib/
 ├── requirements.txt
 └── README.md
 
+## Later i'll share how i implemented this project
+
+
