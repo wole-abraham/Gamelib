@@ -1,3 +1,8 @@
+# Not all have been implemented.. stay tuned
+
+
+
+
 ** GameLib **
 # GameLib Project
 
@@ -20,8 +25,7 @@ GameLib is a web application that allows users to explore a vast collection of v
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS, JavaScript (with a customized front-end template)
 - **API**: RAWG API
-- **Database**: No database is currently used; data is retrieved directly from the API.
-- **Server**: Nginx and Gunicorn
+- **Database**: No database is currently used; data is retrieved directly from the API.orn
 - **Environment**: Python Virtual Environment
 
 ## Setup Instructions
@@ -53,7 +57,8 @@ GameLib is a web application that allows users to explore a vast collection of v
     ```bash
     flask run
     ```
-   - The application will be available at `http://127.0.0.1:5000`.
+   - The application will be available at `http://127.0.0.1:5000` do check the app.py file. 
+     
 
 ## Project Structure
 
