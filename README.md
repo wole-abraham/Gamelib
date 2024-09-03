@@ -28,7 +28,7 @@ GameLib is a web application that allows users to explore a vast collection of v
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/gamelib.git
+    git clone https://github.com/wole-abraham/gamelib.git
     cd gamelib
     ```
 
