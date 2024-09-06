@@ -84,5 +84,6 @@ gamelib/
 # Screenshots
 
 ![Screenshot_2024-09-06_12 46 36](https://github.com/user-attachments/assets/8f3a53aa-8823-47d3-a59d-3eee1f6d9c9e)
-![2](https://github.com/user-attachments/assets/7ab131cf-1537-4f97-9890-e136f142f4da)
+https://github.com/wole-abraham/Gamelib/blob/main/screenshots/Screenshot_2024-09-05_21.55.20.png
+![Alt text](screenshots/Screenshot_2024-09-05_21.55.20.png)
 
