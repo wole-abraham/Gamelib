@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Cyborg - Awesome HTML5 Template</title>
+    <title>Gamelib</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -45,7 +45,7 @@ https://templatemo.com/tm-579-cyborg-gaming
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <header class="header-area">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -65,11 +65,9 @@ https://templatemo.com/tm-579-cyborg-gaming
                     <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="browse.html">Browse</a></li>
-                        <li><a href="details.html" class="active">Details</a></li>
-                        <li><a href="streams.html">Streams</a></li>
-                        <li><a href="profile.html">Profile <img src="{{ url_for('static', filename='assets/images/profile-header.jpg')}}" alt=""></a></li>
+                        <li><a href="{{url_for('index')}}">Home</a></li>
+          
+                        <li><a href="{{ url_for('profile') }}">Profile <img src="{{ url_for('static', filename='assets/images/profile-header.jpg')}}" alt=""></a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -97,7 +95,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                   </div>
                   <div class="col-lg-8">
                     <div class="thumb">
-                      <img src="{{ url_for('static', filename='assets/images/feature-right.jpg')}}" alt="" style="border-radius: 23px;">
+                      <img src="{{ info['background_image']}}" alt="" style="border-radius: 23px;">
                       <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
                     </div>
                   </div>
@@ -146,9 +144,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                     <div class="col-lg-12" style="color: wheat;">
                       <p> {{ info['description'] | safe }} </p>
                     <div class="col-lg-12">
-                      <div class="main-border-button">
-                        <a href="#">Download Fortnite Now!</a>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -165,69 +161,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                   <h4><em>Other Related</em> Games</h4>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item">
-                  <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
-                  <h4>Dota 2</h4><span>Sandbox</span>
-                  <ul>
-                    <li><i class="fa fa-star"></i> 4.8</li>
-                    <li><i class="fa fa-download"></i> 2.3M</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Other End ***** -->
+        </div>
 
         </div>
       </div>

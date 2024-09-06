@@ -136,7 +136,7 @@ body .page-content {
 
 p {
   font-size: 15px;
-  color: lavender;
+  color: #666;
   line-height: 30px;
   margin-bottom: 0px;
 }
@@ -773,9 +773,9 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/spiderman.jpeg);
+  background-image: url(../images/banner-bg.jpg);
   background-position: center center;
-  background-size:contain;
+  background-size: cover;
   min-height: 380px;
   border-radius: 23px;
   padding: 80px 60px;

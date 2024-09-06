@@ -31,7 +31,3 @@ def screenshot(data=None):
         req = requests.get(base_url + f'/{data}/screenshots', params=api_key)
         print(req.json())
         return req.json()['results']
-
-
-
-
