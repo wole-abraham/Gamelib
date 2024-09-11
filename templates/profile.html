@@ -64,8 +64,12 @@
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="browse.html">Browse</a></li>
               
-                        
-                        <li><a href="{{ url_for('profile') }}" class="active">Profile <img src="{{ url_for('static', filename='assets/images/profile-header.jpg')}}" alt=""></a></li>
+                        {% if user %}
+                        <li><a href="{{ url_for('profile') }}" class="active">{{ user.username }} <img src="{{ url_for('static', filename='assets/images/profile-header.jpg')}}" alt=""></a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('profile') }}" class="active">profile<img src="{{ url_for('static', filename='assets/images/profile-header.jpg')}}" alt=""></a></li>
+
+                      {% endif %}
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -94,7 +98,7 @@
                   <div class="col-lg-4 align-self-center">
                     <div class="main-info header-text">
                       <span>Offline</span>
-                      <h4>Alan Smithee</h4>
+                      <h4>{{ user.username }}</h4>
                       <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
                       
                     </div>
