@@ -81,8 +81,12 @@ gamelib/
 
 ## Later i'll share how i implemented this project
 
-# Screenshots
+
+```
+## Screenshots
+![Screenshot_2024-09-05_21 47 39](https://github.com/user-attachments/assets/ac388680-e9af-4248-95e3-a3d47635763a)
+![Screenshot_2024-09-05_21 55 20](https://github.com/user-attachments/assets/f726b0da-3a1e-4eca-80a6-dae1fdc823a6)
 
 ![Screenshot_2024-09-06_12 46 36](https://github.com/user-attachments/assets/8f3a53aa-8823-47d3-a59d-3eee1f6d9c9e)
-![2](https://github.com/user-attachments/assets/7ab131cf-1537-4f97-9890-e136f142f4da)
+![Screenshot_2024-09-06_12 40 44](https://github.com/user-attachments/assets/3975dd76-8e59-4a58-bdd0-936dec82b1aa)
 
