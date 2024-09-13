@@ -95,5 +95,8 @@ def login():
             
     return render_template('login.html')
 
+@app.route('/landing', strict_slashes=False)
+def landing():
+    return render_template('landing.html')
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True)
