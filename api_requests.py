@@ -4,7 +4,7 @@ import requests
 import os
 import json
 from app import db
-from engine import Game
+from models import Game
 from datetime import datetime, timedelta
 today = datetime.now()
 last_month = today - timedelta(days=30)
@@ -13,33 +13,41 @@ date_range = f"{last_month.strftime('%Y-%m-%d')},{today.strftime('%Y-%m-%d')}"
 key = os.getenv('API_KEY')
 base_url = "https://api.rawg.io/api/games"
 api_key = {"key": key, 
-           'dates': date_range,
+        #    'dates': date_range,
            'ordering': '-added',  # Order by popularity (most added)
            
-           'page_size': 30
+           'page_size': 40
 
 }
 
-def get_index(data=None, next=None):
-    if data:
-        req = requests.get(base_url + f'/{data}', params=api_key)
-        data = req.json()
-        game = Game(id=data['id'], title=data['name'],
-                    description=data['description'], background_image=data['background_image'],
-                    rating=data['rating'], website=data['website']
-                    )
+
+
+
+def get_index(id=None, next=None):
+
+    if id is None and next is None:
+        req = requests.get(base_url, params=api_key)
         return req.json()
-    
+
     if next:
         req = requests.get(next)
-        data = req.json()
-        return data
+        return req.json()
 
-    req = requests.get(base_url, params=api_key)
-    return req.json()
+    if id:
+        game = Game.query.filter_by(id=id).first()
 
-def screenshot(data=None):
-    if data:
-        req = requests.get(base_url + f'/{data}/screenshots', params=api_key)
-        print(req.json())
-        return req.json()['results']
+        if game is None:
+            req = requests.get(base_url + f'/{id}', params=api_key).json()
+            screenshot = requests.get(base_url + f'/{id}' + '/screenshots', params=api_key).json()['results']
+
+
+            game = Game(id=req['id'], title=req['name'],
+                        description=req['description'],
+                        background_image=req['background_image'],
+                        rating=req['rating'], website=req['website'],
+                        screenshots =  [ x['image'] for x in screenshot]             
+                        )
+            db.session.add(game)
+            db.session.commit()
+            return game
+        return game

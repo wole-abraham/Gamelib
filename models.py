@@ -1,4 +1,5 @@
 from app import db
+from sqlalchemy import JSON
 
 class User(db.Model):
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
@@ -17,7 +18,7 @@ class Game(db.Model):
     title = db.Column(db.String(100), nullable=True)
     description = db.Column(db.Text, nullable = True)
     background_image = db.Column(db.Text, nullable=True)
-    screenshots = db.Column(db.Text, nullable=True)
+    screenshots = db.Column(JSON, nullable=True)
     rating = db.Column(db.Float, nullable=True)
     website = db.Column(db.Text, nullable=True)
 

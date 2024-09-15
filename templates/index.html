@@ -21,11 +21,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.css')}}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/animated_card.css')}}">
 
+    <style>
+
+      .btn-round-clear{
+        background-color: transparent;
+        color: whitesmoke;
+        border: 2px solid green;
+        height:48px;
+        width: 100%;
+        font-size:18px;
+        font-weight:400;
+        border-radius:24px;
+        margin:20px 20px 0px 0px;
+      }
+
+      .btn-round-clear:hover{
+        background-color: palegreen;
+      }
+      
+      .ion-icon {
+        font-size: 24px;
+        vertical-align:middle;
+      }
+        </style>
   </head>
 
 
 <body>
+
+
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -42,7 +68,7 @@
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
@@ -83,7 +109,7 @@
   <!-- ***** Header Area End ***** -->
 
   {% block info  %}
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
         <div class="page-content">
@@ -103,6 +129,56 @@
             </div>
           </div>
           <!-- ***** Banner End ***** -->
+
+
+          <section class="game-section">
+            <h2 class="line-title">trending games</h2>
+            <div class="owl-carousel custom-carousel owl-theme">
+              <div class="item active" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/dota-2.jpg);">
+                <div class="item-desc">
+                  <h3>Dota 2</h3>
+                  <p>Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the
+                    Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+              </div>
+              <div class="item" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg);">
+                <div class="item-desc">
+                  <h3>The Witcher 3</h3>
+                  <p>The Witcher 3 is a multiplayer online battle arena by Valve. The game is a sequel to Defense
+                    of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+              </div>
+              <div class="item" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg);">
+                <div class="item-desc">
+                  <h3>RDR 2</h3>
+                  <p>RDR 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the
+                    Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+              </div>
+              <div class="item" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg);">
+                <div class="item-desc">
+                  <h3>PUBG Mobile</h3>
+                  <p>PUBG 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the
+                    Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+              </div>
+              <div class="item" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg);">
+                <div class="item-desc">
+                  <h3>Fortnite</h3>
+                  <p>Battle royale where 100 players fight to be the last person standing. which was a community-created mod
+                    for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+              </div>
+              <div class="item" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg);">
+                <div class="item-desc">
+                  <h3>Far Cry 5</h3>
+                  <p>Far Cry 5 is a 2018 first-person shooter game developed by Ubisoft.
+                    which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
           
           <!-- ***** Most Popular Start ***** -->
           <div class="most-popular">
@@ -115,10 +191,22 @@
                   {% for items in data['results'] %}
                   <div class="col-lg-3 col-sm-6" >
                     <div class="item">
-                      <img src="{{ items.get('background_image') }}" alt="">
-                        <a href="{{ url_for('details', id=items.get('id')) }}"><h4>{{ items.get('name')}}<br><span></span></h4></a>
+                      <img src="{{ items.get('background_image') }}" style="height: 100%;" alt="">
+                      <div class="row">
+                        <div class="col-6 col-sm-12" style="text-align: center;">
+                          <a href="{{ url_for('details', id=items.get('id')) }}"><h4>{{ items.get('name')}}<br><span></span></h4></a>
+                        </div>
+                        <div class="col-6 col-sm-12">
+                          <button class="btn-round-clear">
+                            <ion-icon name="add"></ion-icon> Add to Library
+                          </button>
+                        </div>
+                      </div>
+                        
+                       
                       
                     </div>
+                    
                   </div>
                   {% endfor %}
 
@@ -135,7 +223,6 @@
                  id="load-more"
                  style="text-align:center; padding: 20px; color: bisque;">
 
-                 Loading more games......
                 
                 </div> 
           </div>
@@ -152,10 +239,10 @@
   
   
   <footer>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
+          <p>Copyright © 2024<a href="#">GameLib</a> Company. All rights reserved. 
           
           
         </div>
@@ -176,8 +263,8 @@
   <script src="{{ url_for('static', filename='assets/js/tabs.js')}}"></script>
   <script src="{{ url_for('static', filename='assets/js/popup.js')}}"></script>
   <script src="{{ url_for('static', filename='assets/js/custom.js')}}"></script>
-
-  
+  <script src="{{url_for('static', filename='assets/js/animated_card.js')}}"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   </body>
 
 

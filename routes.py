@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from flask import render_template, url_for, redirect, request, flash, session
 from flask_caching import Cache
-from engine import User, Game
-from api_requests import get_index, screenshot as sc
+from models import User, Game
+from api_requests import get_index
 from app import app
 from app import db
 
@@ -22,7 +22,6 @@ next_page = ''
 # @cache.cached(timeout=50)
 def index():
     """ homepage: just displays the games"""
-    # testing
     global next_page
     data = get_index()
     next_page = data['next']
@@ -35,19 +34,17 @@ def index():
 @app.route('/loadmore')
 def load_more():
     global next_page
-    print(next_page)
     page = get_index(next=next_page)
     next_page = page['next']
-    print(next_page)
+
     return render_template('more_games.html', games=page)
 
 
 @app.route('/details/<int:id>')
 def details(id):
     """ displayes information about a specific game """
-    info = get_index(id)
-    screenshot = sc(id)
-    return render_template('details.html', info=info, screenshot=screenshot)
+    game = get_index(id)
+    return render_template('details.html', game=game)
 
 @app.route('/profile', strict_slashes=False)
 def profile():
@@ -100,3 +97,7 @@ def landing():
     return render_template('landing.html')
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True)
+
+@app.route('/test', strict_slashes=False)
+def test():
+    return render_template('test.html')
