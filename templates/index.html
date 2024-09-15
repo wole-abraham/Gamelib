@@ -74,7 +74,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{{ url_for('index')}}" class="logo">
-                        <img src="{{ url_for('static', filename='assets/images/1')}}" alt="">
+                        <img src="{{ url_for('static', filename='assets/images/logo.jpg')}}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Search End ***** -->
@@ -191,7 +191,7 @@
                   {% for items in data['results'] %}
                   <div class="col-lg-3 col-sm-6" >
                     <div class="item">
-                      <img src="{{ items.get('background_image') }}" style="height: 100%;" alt="">
+                      <img src="{{ items.get('background_image') }}" loading="lazy" style="height: 100%;" alt="">
                       <div class="row">
                         <div class="col-12" style="text-align: center;">
                           <a href="{{ url_for('details', id=items.get('id')) }}"><h4>{{ items.get('name')}}<br><span></span></h4></a>

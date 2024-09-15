@@ -7,7 +7,5 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 import routes
 
-
-
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

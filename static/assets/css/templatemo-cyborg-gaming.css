@@ -79,7 +79,7 @@ header, nav, section, article, aside, footer, hgroup {
 html, body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  background-color: black;
+  background: black;
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -123,13 +123,13 @@ Global Styles
 */
 html,
 body {
-  background: #1f2122;
+  background: black;
   font-family: 'Poppins', sans-serif;
 }
 
 body .page-content {
   margin-top: 110px;
-  background-color: #27292a;
+  background: black;
   padding: 60px;
   border-radius: 23px;
 }
@@ -808,7 +808,7 @@ Most Popular Style
 .most-popular {
   margin-top: 60px;
   padding: 30px;
-  background-color: #1f2122;
+  background: black;
   border-radius: 23px;
 }
 
