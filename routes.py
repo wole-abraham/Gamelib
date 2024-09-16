@@ -15,16 +15,16 @@ config = {
 app.config.from_mapping(config)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 cache = Cache(app)
-next_page = ''
+next_page = '' # stores the link to get data for the next page
 
 
 @app.route('/', strict_slashes=False)
-# @cache.cached(timeout=50)
+# 121212121
 def index():
     """ homepage: just displays the games"""
     global next_page
     data = get_index()
-    next_page = data['next']
+    next_page = data.get('next')
     if session.get('id'):
         user = User.query.filter_by(id=session['id']).first()
         return render_template('index.html', data=data, user=user)
@@ -33,6 +33,9 @@ def index():
 
 @app.route('/loadmore')
 def load_more():
+    """ get more games from the api 
+        this powers the infinite scrolling
+    """
     global next_page
     page = get_index(next=next_page)
     next_page = page['next']
