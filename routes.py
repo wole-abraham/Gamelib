@@ -19,7 +19,7 @@ next_page = '' # stores the link to get data for the next page
 
 
 @app.route('/', strict_slashes=False)
-# 121212121
+# @cache.cached(timeout=50)
 def index():
     """ homepage: just displays the games"""
     global next_page
@@ -44,6 +44,7 @@ def load_more():
 
 
 @app.route('/details/<int:id>')
+@cache.cached(timeout=50)
 def details(id):
     """ displayes information about a specific game """
     game = get_index(id)
@@ -94,6 +95,11 @@ def login():
             return render_template('login.html', error='Username or Password is incorrect')
             
     return render_template('login.html')
+
+@app.route('/logout', strict_slashes=False)
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 @app.route('/landing', strict_slashes=False)
 def landing():

@@ -19,7 +19,6 @@ api_key = {"key": key,
 
 
 def get_index(id=None, next=None):
-
     """ 
         queries the api:
         returns all games by default
