@@ -1,20 +1,14 @@
-{% for items in games['results'] %}
-                  <div class="col-lg-3 col-sm-6" >
-                    <div class="item">
-                      <img src="{{ items.get('background_image') }}" alt="">
-                      <div class="row">
-                        <div class="col-6 col-sm-12" style="text-align: center;">
-                          <a href="{{ url_for('details', id=items.get('id')) }}"><h4>{{ items.get('name')}}<br><span></span></h4></a>
-                        </div>
-                        <div class="col-6 col-sm-12">
-                          <button class="btn-round-clear">
-                            <ion-icon name="add"></ion-icon> Add to Library
-                          </button>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
+{% for game in games['results'] %}
+<div class="col-lg-3 col-md-3 col-sm-6">
+  <div class="card">
+      <img src="{{ game.get('background_image') }}" class="card-img-top" alt="Game 1">
+      <div class="card-body">
+          <h5 class="card-title">{{ game.get('name') }}</h5>
+          <p class="card-text">Platform: PC, PS5, Xbox</p>
+          <a href="{{ url_for('details', id=game.get('id'))}}" style="color: darkslategrey;"> Details </a>
+      </div>
+  </div>
+</div>
                   
 {% endfor %}
 <div hx-get="{{url_for('load_more')}}"
