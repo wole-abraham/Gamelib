@@ -1,10 +1,10 @@
-# Not all have been implemented.. stay tuned
+
 
 
 
 
 ** GameLib **
-# GameLib Project
+# GameLib
 
 ## Overview
 
