@@ -84,9 +84,24 @@ gamelib/
 
 ```
 ## Screenshots
-![Screenshot_2024-09-05_21 47 39](https://github.com/user-attachments/assets/ac388680-e9af-4248-95e3-a3d47635763a)
-![Screenshot_2024-09-05_21 55 20](https://github.com/user-attachments/assets/f726b0da-3a1e-4eca-80a6-dae1fdc823a6)
+![Screenshot_2024-09-17_02 07 24](https://github.com/user-attachments/assets/ff7eb24b-5503-4fbc-87fd-e43ddaa25b33)
 
-![Screenshot_2024-09-06_12 46 36](https://github.com/user-attachments/assets/8f3a53aa-8823-47d3-a59d-3eee1f6d9c9e)
-![Screenshot_2024-09-06_12 40 44](https://github.com/user-attachments/assets/3975dd76-8e59-4a58-bdd0-936dec82b1aa)
+![Screenshot_2024-09-17_02 07 12](https://github.com/user-attachments/assets/9fbb201c-a09c-43ca-b6b6-980bc81f2adf)
+
+![Screenshot_2024-09-17_02 07 38](https://github.com/user-attachments/assets/de335f05-68ad-4a18-94fd-ac2aad29c94b)
+
+![Screenshot_2024-09-17_02 07 45](https://github.com/user-attachments/assets/f3895cda-d222-4328-9608-bb04f6e7212a)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
