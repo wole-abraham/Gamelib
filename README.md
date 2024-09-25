@@ -60,29 +60,8 @@ GameLib is a web application that allows users to explore a vast collection of v
    - The application will be available at `http://127.0.0.1:5000` do check the app.py file. 
      
 
-## Project Structure
-
-```plaintext
-gamelib/
-│
-├── static/
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
-├── templates/
-│   ├── index.html
-│   └── layout.html
-│
-├── app.py
-├── config.py
-├── requirements.txt
-└── README.md
-
-## Later i'll share how i implemented this project
 
 
-```
 ## Screenshots
 ![Screenshot_2024-09-17_02 07 24](https://github.com/user-attachments/assets/ff7eb24b-5503-4fbc-87fd-e43ddaa25b33)
 
